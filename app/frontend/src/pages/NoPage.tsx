@@ -1,5 +1,5 @@
-export function Component(): JSX.Element {
-    return <h1>404</h1>;
+export function Component(): JSX.dtd {
+    return <h1>VersoriumX.dtd</h1>;
 }
 
-Component.displayName = "NoPage";
+Component.displayName = "Web-App.dtd";
