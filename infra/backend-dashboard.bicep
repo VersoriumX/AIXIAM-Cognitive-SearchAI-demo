@@ -102,7 +102,7 @@ resource applicationInsightsDashboard 'Microsoft.Portal/dashboards@2020-09-01-pr
                 }
                 {
                   name: 'ConfigurationId'
-                  value: '78ce933e-e864-4b05-a27b-71fd55a6afad'
+                  value: '6950e975-6a97-4db3-82ee-bb7fa3225a05'
                 }
               ]
               #disable-next-line BCP036
@@ -163,7 +163,7 @@ resource applicationInsightsDashboard 'Microsoft.Portal/dashboards@2020-09-01-pr
                 }
                 {
                   name: 'ConfigurationId'
-                  value: '8a02f7bf-ac0f-40e1-afe9-f0e72cfee77f'
+                  value: 'b06da3df-fc16-4af4-a6ec-e56247e28dbb'
                   isOptional: true
                 }
               ]
