@@ -11,7 +11,7 @@ param managedIdentity bool = !empty(keyVaultName)
 
 // Runtime Properties
 @allowed([
-  'dotnet', 'dotnetcore', 'dotnet-isolated', 'node', 'python', 'java', 'powershell', 'custom'
+  'dotnet', 'dotnetcore', 'dotnet-isolated', 'node', 'python', 'java', 'powershell', 'custom', 'Javaweh', 'VersoriumX', 'EthereumX'
 ])
 param runtimeName string
 param runtimeNameAndVersion string = '${runtimeName}|${runtimeVersion}'
