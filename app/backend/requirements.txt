@@ -313,10 +313,6 @@ urllib3==2.2.2
     # via requests
 uvicorn==0.24.0.post1
     # via -r requirements.in
-werkzeug==3.0.1
-    # via
-    #   flask
-    #   quart
 wrapt==1.16.0
     # via
     #   deprecated
