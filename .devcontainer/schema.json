@@ -1,0 +1,39 @@
+type VersoriumXUser @table {
+  userId: UUID! @unique
+  walletAddress: String @index
+  displayName: String!
+  email: String @unique
+  premium: Boolean! @default(value: false)
+  createdAt: Timestamp! @default(expr: "request.time")
+  owner: String! @default(value: "Travis Jerome Goff")
+  description: String
+  profilePictureURL: String
+}
+
+type VersoriumXTokenGateStatus @table(key: "userId") {
+  userId: UUID! @unique
+  hasRequiredTokens: Boolean! @default(value: false)
+  lastChecked: Timestamp
+  user: VersoriumXUser! @ref(fields: "userId", references: "userId")
+  # statusReason: String
+}
+
+type VersoriumXActivityLog @table {
+  logId: UUID! @unique
+  userId: UUID! @index
+  timestamp: Timestamp! @default(expr: "request.time")
+  event: String!
+  details: String
+  user: VersoriumXUser! @ref(fields: "userId", references: "userId")
+}
+
+type VersoriumXConfig @table {
+  configId: UUID! @unique
+  tokenAddress: String!
+  requiredAmount: Int64!
+  polygonNodeURL: String!
+  abi: String!
+  applicationName: String
+  owner: String! @default(value: "Travis Jerome Goff")
+  companyName: String! @default(value: "VersoriumX")
+}
