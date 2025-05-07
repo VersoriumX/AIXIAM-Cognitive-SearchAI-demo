@@ -265,7 +265,7 @@ quart==0.19.7
     # via
     #   -r requirements.in
     #   quart-cors
-quart-cors==0.7.0
+quart-cors==0.20.0
     # via -r requirements.in
 regex==2023.10.3
     # via tiktoken
