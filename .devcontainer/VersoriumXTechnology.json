@@ -1,0 +1,149 @@
+{
+  "header": {
+    "title": "VersoriumX Technology",
+    "subtitle": "Owner: Travis Jerome Goff (0x608cfC1575b56a82a352f14d61be100FA9709D75)",
+    "imageUrl": "https://img.lyrix.io/versoriumx_logo.png",
+    "imageType": "CIRCLE"
+  },
+  "fixedFooter": {
+    "primaryButton": {
+      "text": "View ETHX on Polygonscan",
+      "color": {
+        "red": 0,
+        "green": 0.5,
+        "blue": 1,
+        "alpha": 1
+      },
+      "onClick": {
+        "openLink": {
+          "url": "https://polygonscan.com/token/0x8487B97c91ecC1a03b4907B64Bdeab306B888c0E"
+        }
+      }
+    },
+    "secondaryButton": {
+      "text": "View Owner's Wallet",
+      "onClick": {
+        "openLink": {
+          "url": "https://polygonscan.com/address/0x608cfC1575b56a82a352f14d61be100FA9709D75"
+        }
+      }
+    }
+  },
+  "sections": [
+    {
+      "header": "EthereumX (ETHX) Token Details",
+      "collapsible": true,
+      "uncollapsibleWidgetsCount": 1,
+      "widgets": [
+        {
+          "image": {
+            "imageUrl": "https://img.lyrix.io/ethx_token_logo.png",
+            "altText": "EthereumX Logo"
+          }
+        },
+        {
+          "divider": {}
+        },
+        {
+          "textParagraph": {
+            "text": "<b>Contract Address:</b> <code>0x8487B97c91ecC1a03b4907B64Bdeab306B888c0E</code>"
+          }
+        },
+        {
+          "textParagraph": {
+            "text": "<b>Token Name:</b> EthereumX"
+          }
+        },
+        {
+          "textParagraph": {
+            "text": "<b>Token Symbol:</b> ETHX"
+          }
+        },
+        {
+          "textParagraph": {
+            "text": "<b>Decimals:</b> 18"
+          }
+        },
+        {
+          "textParagraph": {
+            "text": "<b>Total Supply:</b> 1,000,000,000.0 ETHX"
+          }
+        }
+      ]
+    },
+    {
+      "header": "Treasury & Ownership Status",
+      "collapsible": true,
+      "uncollapsibleWidgetsCount": 2,
+      "widgets": [
+        {
+          "divider": {}
+        },
+        {
+          "textParagraph": {
+            "text": "<b>Contract Owner:</b> <code>0x608cfC1575b56a82a352f14d61be100FA9709D75</code>"
+          }
+        },
+        {
+          "textParagraph": {
+            "text": "<b>Owner's ETHX Balance:</b> 500,000,000.0 ETHX"
+          }
+        },
+        {
+          "textParagraph": {
+            "text": "<b>Owner's WETH Balance:</b> 123.45 WETH"
+          }
+        },
+        {
+          "textParagraph": {
+            "text": "<i>(WETH is 0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619)</i>"
+          }
+        }
+      ]
+    },
+    {
+      "header": "Your Wallet Balance (Requires Wallet Connection)",
+      "collapsible": true,
+      "uncollapsibleWidgetsCount": 0,
+      "widgets": [
+        {
+          "divider": {}
+        },
+        {
+          "textParagraph": {
+            "text": "<b>Your Wallet Address:</b> <code>0xYourConnectedWalletAddressHere</code>"
+          }
+        },
+        {
+          "textParagraph": {
+            "text": "<b>Your ETHX Balance:</b> 1,234.56 ETHX"
+          }
+        },
+        {
+          "buttonList": {
+            "buttons": [
+              {
+                "text": "Connect Wallet",
+                "onClick": {
+                  "action": {
+                    "function": "connectWalletAndRefresh",
+                    "parameters": []
+                  }
+                }
+              },
+              {
+                "text": "Burn ETHX",
+                "onClick": {
+                  "action": {
+                    "function": "initiateETHXBurn",
+                    "parameters": []
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
