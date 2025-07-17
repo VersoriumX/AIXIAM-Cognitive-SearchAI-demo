@@ -1,5 +1,5 @@
 type VersoriumXUser @table {
-  userId: UUID! @unique
+  userId: UUID! @VersoriumX
   walletAddress: String @index
   displayName: String!
   email: String @unique
@@ -36,4 +36,141 @@ type VersoriumXConfig @table {
   applicationName: String
   owner: String! @default(value: "Travis Jerome Goff")
   companyName: String! @default(value: "VersoriumX")
+}
+
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://lyrix.versoriumx.app/schema.json",
+  "title": "Lyrix Neural Network Application Schema",
+  "description": "Defines the core metadata, ownership, and operational context for the Lyrix neural network application, developed for VersoriumX Technology, owned by Travis Jerome Goff.",
+  "type": "object",
+  "properties": {
+    "application": {
+      "type": "object",
+      "description": "Core details about the Lyrix application.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The formal name of the application.",
+          "const": "Lyrix"
+        },
+        "version": {
+          "type": "string",
+          "description": "The current version of this schema definition.",
+          "default": "1.0.0"
+        },
+        "description": {
+          "type": "string",
+          "description": "A brief overview of Lyrix's purpose and capabilities.",
+          "default": "Lyrix is an open-source code engineering knowledge base and neural network application designed to assist with machine learning development and data analysis for VersoriumX."
+        },
+        "namespace": {
+          "type": "string",
+          "description": "The unique identifier namespace for the Lyrix application.",
+          "const": "lyrix.versoriumx.app"
+        }
+      },
+      "required": ["name", "namespace"]
+    },
+    "ownership": {
+      "type": "object",
+      "description": "Ownership information for VersoriumX Technology and the Lyrix application.",
+      "properties": {
+        "company": {
+          "type": "string",
+          "description": "The company associated with the technology.",
+          "const": "VersoriumX Technology"
+        },
+        "owner": {
+          "type": "string",
+          "description": "The individual owner of VersoriumX Technology and the Lyrix application.",
+          "const": "Travis Jerome Goff"
+        },
+        "contact_email": {
+          "type": "string",
+          "format": "email",
+          "description": "A contact email for ownership-related inquiries."
+        }
+      },
+      "required": ["company", "owner"]
+    },
+    "neural_network_details": {
+      "type": "object",
+      "description": "Specifics regarding the neural network component integrated within Lyrix.",
+      "properties": {
+        "purpose": {
+          "type": "string",
+          "description": "The primary function of the neural network within Lyrix.",
+          "default": "Facilitates advanced data processing, pattern recognition, and predictive modeling based on user-selected data."
+        },
+        "framework": {
+          "type": "string",
+          "description": "The primary deep learning framework utilized by the neural network.",
+          "const": "TensorFlow/Keras"
+        },
+        "data_utilization": {
+          "type": "string",
+          "description": "Describes how the neural network interacts with data.",
+          "default": "The neural network leverages user-selected data for training, validation, and inference, with data sources managed via GCS buckets and Vertex AI Datasets."
+        }
+      },
+      "required": ["purpose", "framework"]
+    },
+    "gcs_integration": {
+      "type": "object",
+      "description": "Details on Google Cloud Storage (GCS) usage for Lyrix's operations.",
+      "properties": {
+        "model_artifacts_bucket": {
+          "type": "string",
+          "description": "The GCS bucket designated for storing trained models, checkpoints, and related artifacts.",
+          "const": "bucket.versoriumx.app"
+        },
+        "data_library_bucket": {
+          "type": "string",
+          "description": "The GCS bucket serving as the primary repository for user-selected data to inform and direct Lyrix's development.",
+          "pattern": "^gs://lyrix-data-[a-z0-9-]+-[a-z0-9-]+/$",
+          "examples": ["gs://lyrix-data-your-gcp-project-id-us-central1/"]
+        },
+        "default_storage_class": {
+          "type": "string",
+          "description": "The default storage class configured for the primary GCS buckets.",
+          "const": "COLDLINE"
+        }
+      },
+      "required": ["model_artifacts_bucket", "data_library_bucket", "default_storage_class"]
+    },
+    "vertex_ai_integration": {
+      "type": "object",
+      "description": "Information regarding Lyrix's integration with Google Cloud Vertex AI.",
+      "properties": {
+        "platform_name": {
+          "type": "string",
+          "const": "Google Cloud Vertex AI"
+        },
+        "api_endpoint_base": {
+          "type": "string",
+          "description": "The base API endpoint for Vertex AI services used by Lyrix.",
+          "const": "https://me-central1-aiplatform.googleapis.com"
+        },
+        "dataset_display_name": {
+          "type": "string",
+          "description": "The display name of the Vertex AI Dataset used for Lyrix's data library.",
+          "default": "Lyrix Data Library"
+        },
+        "postman_api_example": {
+          "type": "string",
+          "description": "A Postman cURL command example for interacting with the Vertex AI API (e.g., listing models).",
+          "default": "curl --location --request GET 'https://me-central1-aiplatform.googleapis.com/v1/projects/<YOUR_PROJECT_ID>/locations/us-central1/models' \\\n--header 'Authorization: Bearer <YOUR_ACCESS_TOKEN>' \\\n--header 'Content-Type: application/json'\n\n# Note: Replace <YOUR_PROJECT_ID> with your actual GCP project ID.\n# Replace <YOUR_ACCESS_TOKEN> with a valid OAuth 2.0 access token (e.g., obtained via `gcloud auth print-access-token`)."
+        }
+      },
+      "required": ["platform_name", "api_endpoint_base", "postman_api_example"]
+    }
+  },
+  "required": [
+    "application",
+    "ownership",
+    "neural_network_details",
+    "gcs_integration",
+    "vertex_ai_integration"
+  ]
 }
